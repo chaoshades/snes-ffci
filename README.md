@@ -61,7 +61,7 @@ The general project structure is as follows:
 
 This may change in the future, the basic idea here is to have "strict" rules to allow multiple person edit part of the ROM without overriding one another, which is possible when it remains in the same data region which can't be the case for everything. The best would be having a complete disassembly but for now it works :
 
-![IPS Dependency](./docs/IPS Dependency.jpg)
+![IPS Dependency](docs/IPS%20Dependency.jpg)
 
 ## Contributing
 
@@ -71,7 +71,7 @@ Still in development...
 
 These awesome people contributed indirectly to this project by posting their knowledge about the game through Discord/Hacking forums and/or by creating comprehensive tools to ease the exploration within the internal workings of the game.
 
-- Slick Productions forum : <http://slickproductions.org/forum/index.php?board=13.0>
+- Slick Productions forum : <https://web.archive.org/web/20200414113643/http://slickproductions.org/forum/index.php?board=13.0>
 - FF6Tools : <https://github.com/everything8215/ff6tools>
 - FF4kster : <https://github.com/pinkpuff/ff4kster>
 - DiztinGUIsh : <https://github.com/Dotsarecool/DiztinGUIsh>
