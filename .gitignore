@@ -1,0 +1,3 @@
+# Ignore SNES ROM files in this repo...
+*.sfc
+*.smc
