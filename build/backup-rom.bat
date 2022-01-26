@@ -8,12 +8,12 @@ IF not exist "%rom%" goto :ERRrom
 IF "%patchName%" EQU "" goto :ERRpatch
 
 set tmpRom=
-CALL :FXBackup tmpRom %rom% %patchName% %tmpPath%
+CALL :FXCopy tmpRom %rom% %patchName% %tmpPath%
 
 endlocal & set "%~1=%tmpRom%"
 goto :end
 
-:FXBackup
+:FXCopy
 set src=%2
 set ext=%~x2
 set dest=%~n3
