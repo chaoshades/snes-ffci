@@ -1,26 +1,23 @@
 @echo off
 set rom=%1
 set dev=%2
-set patcherUtil=%~dp0\build\tools\flips\flips.exe
-set patchesPath=%~dp0\patches\
-set patchedRom="%~dpn1-patched%~x1"
+set buildPath=%~dp0.\build\
 
-IF not exist "%patcherUtil%" goto :ERRpatcher
-IF not exist "%patchesPath%" goto :ERRpatches
 IF not exist "%rom%" goto :ERRrom
 IF "%dev%" NEQ "" IF "%dev%" NEQ "dev" goto :ERRdev
 
-CALL :FXBackup %rom% %patchedRom%
+set patchedRom=
+CALL :FXCopy patchedRom %rom%
+
 echo The following ROM '%patchedRom%' will be patched...
-REM By the IPS dependency graph, only 08-events is needed because it contains everyone else
-REM CALL :FXApply 01-worldmap.ips
-REM CALL :FXApply 02-vehicles.ips
-REM CALL :FXApply 04-monsters.ips
-REM CALL :FXApply 06-characters.ips
-CALL :FXApply 08-events.ips
+CALL :FXApply %rom% 01-worldmap.ips
+CALL :FXApply %rom% 02-vehicles.ips
+CALL :FXApply %rom% 04-monsters.ips
+CALL :FXApply %rom% 06-characters.ips
+CALL :FXApply %rom% 08-events.ips
 IF "%dev%" EQU "dev" (
   echo Adding 'dev' patches...
-  CALL :FXApply 99-devRoom.ips
+  CALL :FXApply %rom% 99-devRoom.ips
 )
 IF %ERRORLEVEL% EQU 0 (
   echo ROM patched.
@@ -31,25 +28,26 @@ IF %ERRORLEVEL% EQU 0 (
   goto :error
 )
 
-:FXBackup
-echo Copying %1 into %~p2
-copy /y "%1" "%patchedRom%" >NUL
+:FXCopy
+set src=%2
+set path=%~p2
+set file=%~n2
+set ext=%~x2
+set dest=%file%-patched%ext%
+
+echo Copying %src% into %path%
+copy /y "%src%" "%dest%" >NUL
+set "%~1=%dest%"
+
 exit /b %errorlevel%
 
 :FXApply
-IF %ERRORLEVEL% EQU 0 (
-  echo Applying %1
-  "%patcherUtil%" "%patchesPath%%1" "%rom%"
-)
+set rom=%1
+set patch=%2
+
+CALL %buildPath%ips-patcher.bat %rom% %patch%
+
 exit /b %errorlevel%
-
-:ERRpatcher
-echo IPS Patcher utility is missing. Is it there '%patcherUtil%'?
-goto error
-
-:ERRpatches
-echo Path for the patches doesn't exist. Is this the good one '%patchesPath%'?
-goto error
 
 :ERRrom
 echo You need to specify a ROM to apply the patches.
