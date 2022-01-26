@@ -1,19 +1,17 @@
 @echo off
 setlocal
-set rom=%1
-set tmpRom=%2
+set origRom=%1
+set hackedRom=%2
 set patchName=%3
-set patcherUtil=%~dp0\tools\flips\flips.exe
-set patchesPath=%~dp0..\patches\
+set tmpPath=%~dp0..\patches\tmp\
 
-IF not exist "%patcherUtil%" goto :ERRpatcher
-IF not exist "%patchesPath%" goto :ERRpatches
-IF not exist "%rom%" goto :ERRrom
-IF not exist "%tmpRom%" goto :ERRrom
+IF not exist "%origRom%" goto :ERRrom
+IF not exist "%hackedRom%" goto :ERRrom
 IF "%patchName%" EQU "" goto :ERRpatch
 
-echo The unmodified ROM '%rom%' will be used for patch creation...
-CALL :FXCreate %patchName%.ips
+echo The unmodified ROM '%origRom%' will be used for patch creation...
+CALL :FXCreate %origRom% %hackedRom% %patchName% %tmpPath%
+
 IF %ERRORLEVEL% EQU 0 (
   echo IPS patch created.
   @pause
@@ -24,20 +22,26 @@ IF %ERRORLEVEL% EQU 0 (
 )
 
 :FXCreate
-echo Creating %1 from modified ROM %tmpRom%
-"%patcherUtil%" "%rom%" "%tmpRom%" "%patchesPath%%1"
+set orig=%1
+set hacked=%2
+set dest=%~n3
+set ext=%~x3
+set tmp=%4
+REM Stringify the current date and time into YYYY_MM_DD__HH_MM_SS
+set dt=%DATE%__%TIME:~0,8%
+set dt=%dt:-=_%
+set dt=%dt::=_%
+set dest=%dest%_%dt%%ext%
+
+IF not exist "%tmp%" mkdir "%tmp%"
+
+echo Creating patch from modified ROM %hacked% into %tmp%
+CALL ips-creator.bat %orig% %hacked% %dest% %tmp%
+
 exit /b %errorlevel%
 
-:ERRpatcher
-echo IPS Patcher utility is missing. Is it there '%patcherUtil%'?
-goto error
-
-:ERRpatches
-echo Path for the patches doesn't exist. Is this the good one '%patchesPath%'?
-goto error
-
 :ERRrom
-echo You need to specify the original ROM and hacked ROM to create the patches.
+echo You need to specify the original ROM and hacked ROM to create the patch.
 goto error
 
 :ERRpatch
