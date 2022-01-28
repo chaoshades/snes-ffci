@@ -1,2 +1,2 @@
 @echo off
-CALL build.bat %1 08-events
+CALL build.bat 08-events %1 %2

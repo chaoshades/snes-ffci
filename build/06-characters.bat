@@ -1,2 +1,2 @@
 @echo off
-CALL build.bat %1 06-characters
+CALL build.bat 06-characters %1 %2

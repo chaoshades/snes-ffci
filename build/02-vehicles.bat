@@ -1,2 +1,2 @@
 @echo off
-CALL build.bat %1 02-vehicles
+CALL build.bat 02-vehicles %1 %2

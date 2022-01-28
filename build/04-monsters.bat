@@ -1,2 +1,2 @@
 @echo off
-CALL build.bat %1 04-monsters
+CALL build.bat 04-monsters %1 %2

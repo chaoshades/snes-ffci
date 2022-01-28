@@ -1,2 +1,2 @@
 @echo off
-CALL build.bat %1 99-devRoom
+CALL build.bat 99-devRoom %1 %2

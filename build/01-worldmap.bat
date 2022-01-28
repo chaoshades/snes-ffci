@@ -1,2 +1,2 @@
 @echo off
-CALL build.bat %1 01-worldmap
+CALL build.bat 01-worldmap %1 %2
