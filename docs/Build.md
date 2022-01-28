@@ -31,7 +31,7 @@ There are two config files as of now :
 
 - `build-config-asm.ini`: Contains an **ordered list** of ASM patches to apply with Asar
 - `build-config-ips.ini`: Contains an **ordered list** of IPS patches to apply with Flips
-  > The reason there are IPS patches that are applied is because there are still changes that aren't in pure assembly code, so they are edited using some of the tools described on the main [README](../README)
+  > The reason there are IPS patches that are applied is because there are still changes that aren't in pure assembly code, so they are edited using some of the tools described on the main [README](../README.md)
 
 Sample:
 ```text
