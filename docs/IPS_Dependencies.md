@@ -8,7 +8,7 @@ This may change in the future, the basic idea here is to have "strict" rules to 
 
 ## Dependency graph
 
-![IPS Dependency](docs/IPS%20Dependency.jpg)
+![IPS Dependency](IPS%20Dependency.jpg)
 
 ## Patch names
 

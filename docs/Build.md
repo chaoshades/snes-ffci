@@ -31,7 +31,7 @@ There are two config files as of now :
 
 - `build-config-asm.ini`: Contains an **ordered list** of ASM patches to apply with Asar
 - `build-config-ips.ini`: Contains an **ordered list** of IPS patches to apply with Flips
-  > The reason there are IPS patches that are applied is because there are still changes that aren't in pure assembly code, so they are edited using some of the tools described on the main [README](./README)
+  > The reason there are IPS patches that are applied is because there are still changes that aren't in pure assembly code, so they are edited using some of the tools described on the main [README](../README)
 
 Sample:
 ```text
@@ -52,8 +52,8 @@ This script will copy the vanille ROM and applies every named patches from the `
 
 #### Args
 
-1- Vanilla ROM which we want to apply the patches
-2- \[optional\] Flag option to add a specific patch. If specified, only valid value : `dev`
+1. Vanilla ROM which we want to apply the patches
+2. \[optional\] Flag option to add a specific patch. If specified, only valid value : `dev`
 
 #### How to use
 
@@ -70,8 +70,8 @@ These are mainly shortcuts calling the `build.bat` script. There are no logic in
 
 #### Args
 
-1- Vanilla ROM which we want to apply the patches
-2- \[optional\] Hacked ROM which we want to create the IPS patch
+1. Vanilla ROM which we want to apply the patches
+2. \[optional\] Hacked ROM which we want to create the IPS patch
 
 #### How to use
 
@@ -86,8 +86,8 @@ This is mainly a shortcut to every `0x-patchName.bat` script. The only logic is 
 
 #### Args
 
-1- Vanilla ROM which we want to apply the patches
-2- \[optional\] Flag option to add a specific patch. If specified, only valid value : `dev`
+1. Vanilla ROM which we want to apply the patches
+2. \[optional\] Flag option to add a specific patch. If specified, only valid value : `dev`
 
 #### How to use
 
@@ -104,9 +104,9 @@ There are two modes to this script :
 
 #### Args
 
-1- Patch name that represent the resulting IPS patch
-2- Vanilla ROM which we want to apply the patches
-3- \[optional\] Hacked ROM which we want to create the IPS patch
+1. Patch name that represent the resulting IPS patch
+2. Vanilla ROM which we want to apply the patches
+3. \[optional\] Hacked ROM which we want to create the IPS patch
 
 #### How to use
 
@@ -121,9 +121,9 @@ It takes the original ROM, make a copy of it with a suffix based on the date and
 
 #### Args
 
-1- Returns the complete path to the temporary ROM
-2- Vanilla ROM
-3- Patch name
+1. Returns the complete path to the temporary ROM
+2. Vanilla ROM
+3. Patch name
 
 #### How to use
 
@@ -137,10 +137,10 @@ This script reads the build config files, loops on every line under the specifie
 
 #### Args
 
-1- Kind of patches to use. Two valid values : `asm` or `ips`
-2- Vanilla ROM
-3- Patch name
-4- Config file name to use
+1. Kind of patches to use. Two valid values : `asm` or `ips`
+2. Vanilla ROM
+3. Patch name
+4. Config file name to use
 
 #### How to use
 
@@ -155,9 +155,9 @@ Apply the ASM patches to a ROM.
 
 #### Args
 
-1- Vanilla ROM
-2- ASM Patch filename
-3- Patch name
+1. Vanilla ROM
+2. ASM Patch filename
+3. Patch name
 
 #### How to use
 
@@ -171,8 +171,8 @@ Apply the IPS patches to a ROM.
 
 #### Args
 
-1- Vanilla ROM
-2- Patch name
+1. Vanilla ROM
+2. Patch name
 
 #### How to use
 
@@ -186,9 +186,9 @@ Creates an IPS patch from an hacked ROM and save it with a suffix based on the d
 
 #### Args
 
-1- Vanilla ROM
-2- Hacked ROM which we want to create the IPS patch
-3- Patch name
+1. Vanilla ROM
+2. Hacked ROM which we want to create the IPS patch
+3. Patch name
 
 #### How to use
 
@@ -202,10 +202,10 @@ Create an IPS patch from the specified ROMs.
 
 #### Args
 
-1- Vanilla ROM
-2- Hacked ROM which we want to create the IPS patch
-3- Patch name
-4- Patches folder
+1. Vanilla ROM
+2. Hacked ROM which we want to create the IPS patch
+3. Patch name
+4. Patches folder
 
 #### How to use
 
