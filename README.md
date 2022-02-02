@@ -31,7 +31,7 @@ I started playing [FF4 : Free Enterprise](http://ff4fe.com/) for some years now 
 
 ### Build the patches
  
-> Every patched ROMs and/or IPS patches created during the building phase are stored into `build/tmp` and `build/tmp` accordingly with a suffix based on date and time of the day.  
+> Every patched ROMs and/or IPS patches created during the building phase are stored into `build/tmp` and `patches/tmp` accordingly with a suffix based on date and time of the day.  
 > You will however need to move the builded patches in the `patches` folder, removes the suffix and then to run the `apply.bat` above to apply them to a ROM.
 
 - Go into the `build` folder of this repo.
