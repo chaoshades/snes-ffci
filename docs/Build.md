@@ -57,7 +57,7 @@ This script will copy the vanille ROM and applies every named patches from the `
 
 #### How to use
 
-```text
+```powershell
 apply.bat rom.sfc|rom.smc
 apply.bat rom.sfc|rom.smc dev
 ```
@@ -75,7 +75,7 @@ These are mainly shortcuts calling the `build.bat` script. There are no logic in
 
 #### How to use
 
-```text
+```powershell
 0x-patchName.bat rom.sfc|rom.smc
 0x-patchName.bat rom.sfc|rom.smc hacked.sfc|hacked.smc
 ```
@@ -91,7 +91,7 @@ This is mainly a shortcut to every `0x-patchName.bat` script. The only logic is 
 
 #### How to use
 
-```text
+```powershell
 build-all.bat rom.sfc|rom.smc
 build-all.bat rom.sfc|rom.smc dev
 ```
@@ -110,7 +110,7 @@ There are two modes to this script :
 
 #### How to use
 
-```text
+```powershell
 build.bat 0x-patchName rom.sfc|rom.smc
 build.bat 0x-patchName rom.sfc|rom.smc hacked.sfc|hacked.smc
 ```
@@ -127,7 +127,7 @@ It takes the original ROM, make a copy of it with a suffix based on the date and
 
 #### How to use
 
-```text
+```powershell
 backup-rom.bat returnValue rom.sfc|rom.smc 0x-patchName
 ```
 
@@ -144,7 +144,7 @@ This script reads the build config files, loops on every line under the specifie
 
 #### How to use
 
-```text
+```powershell
 patch.bat asm rom.sfc|rom.smc 0x-patchName build-config-asm.ini
 patch.bat ips rom.sfc|rom.smc 0x-patchName build-config-ips.ini
 ```
@@ -161,7 +161,7 @@ Apply the ASM patches to a ROM.
 
 #### How to use
 
-```text
+```powershell
 asm-patcher.bat patch-1.asm rom.sfc|rom.smc 0x-patchName
 ```
 
@@ -176,7 +176,7 @@ Apply the IPS patches to a ROM.
 
 #### How to use
 
-```text
+```powershell
 ips-patcher.bat rom.sfc|rom.smc 0x-patchName.ips
 ```
 
@@ -192,7 +192,7 @@ Creates an IPS patch from an hacked ROM and save it with a suffix based on the d
 
 #### How to use
 
-```text
+```powershell
 build-ips.bat rom.sfc|rom.smc hacked.sfc|hacked.smc 0x-patchName
 ```
 
@@ -209,6 +209,6 @@ Create an IPS patch from the specified ROMs.
 
 #### How to use
 
-```text
+```powershell
 ips-creator.bat rom.sfc|rom.smc hacked.sfc|hacked.smc 0x-patchName ../patches/tmp
 ```
