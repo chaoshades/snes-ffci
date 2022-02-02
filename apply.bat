@@ -10,14 +10,14 @@ set patchedRom=
 CALL :FXCopy patchedRom %rom%
 
 echo The following ROM '%patchedRom%' will be patched...
-CALL :FXApply %rom% 01-worldmap.ips
-CALL :FXApply %rom% 02-vehicles.ips
-CALL :FXApply %rom% 04-monsters.ips
-CALL :FXApply %rom% 06-characters.ips
-CALL :FXApply %rom% 08-events.ips
+CALL :FXApply %patchedRom% 01-worldmap.ips
+CALL :FXApply %patchedRom% 02-vehicles.ips
+CALL :FXApply %patchedRom% 04-monsters.ips
+CALL :FXApply %patchedRom% 06-characters.ips
+CALL :FXApply %patchedRom% 08-events.ips
 IF "%dev%" EQU "dev" (
   echo Adding 'dev' patches...
-  CALL :FXApply %rom% 99-devRoom.ips
+  CALL :FXApply %patchedRom% 99-devRoom.ips
 )
 IF %ERRORLEVEL% EQU 0 (
   echo ROM patched.
