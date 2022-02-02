@@ -26,7 +26,10 @@ I started playing [FF4 : Free Enterprise](http://ff4fe.com/) for some years now 
 ### Apply the patches
 
 - Go to the main folder of this repo.
-- Run this command to apply every patch to your ROM. `apply.bat rom.sfc|rom.smc [dev]`
+- Run this command to apply every patch to your ROM.
+  ```powershell
+  apply.bat rom.sfc|rom.smc [dev]
+  ```
   > If you add the `dev` option, it will add the `devRoom` patch.
 
 ### Build the patches
@@ -35,16 +38,25 @@ I started playing [FF4 : Free Enterprise](http://ff4fe.com/) for some years now 
 > You will however need to move the builded patches in the `patches` folder, removes the suffix and then to run the `apply.bat` above to apply them to a ROM.
 
 - Go into the `build` folder of this repo.
-- Run this command to build all patches based on your ROM. `build-all.bat rom.sfc|rom.smc [dev]`
-   > If you add the `dev` option, it will build the `devRoom` patch.
+- Run this command to build all patches based on your ROM.
+  ```powershell
+  build-all.bat rom.sfc|rom.smc [dev]
+  ```
+  > If you add the `dev` option, it will build the `devRoom` patch.
 
 OR
 
-- Run this command to build a specific patch based on your ROM. `0x-patchName.bat rom.sfc|rom.smc`
+- Run this command to build a specific patch based on your ROM.
+  ```powershell
+  0x-patchName.bat rom.sfc|rom.smc
+  ```
 
 OR
 
-- Run this command to create an IPS patch from an already hacked ROM. `0x-patchName.bat rom.sfc|rom.smc hacked.sfc|hacked.smc`
+- Run this command to create an IPS patch from an already hacked ROM.
+  ```powershell
+  0x-patchName.bat rom.sfc|rom.smc hacked.sfc|hacked.smc
+  ```
 
 ## Documentation
 
