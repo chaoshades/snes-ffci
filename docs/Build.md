@@ -25,15 +25,17 @@ build.bat
 
 ## Build config files
 
-The main objective of these files is to ease the building process by grouping the 
+The main objective of these files is to ease the building process by grouping every patches under each and every patch name OR group.
 
-There are two config files as of now :
+There are four config files as of now :
 
 - `build-config-asm.ini`: Contains an **ordered list** of ASM patches to apply with Asar
 - `build-config-ips.ini`: Contains an **ordered list** of IPS patches to apply with Flips
   > The reason there are IPS patches that are applied is because there are still changes that aren't in pure assembly code, so they are edited using some of the tools described on the main [README](../README.md)
+- `build-config-all.ini`: Contains an **ordered list** of BAT scripts to call
+- `apply-config.ini`: Contains an **ordered list** of IPS patches to apply with Flips
 
-Sample:
+Sample for `build-config-ips|asm.ini`:
 ```text
 [0x-patchName]
 
@@ -42,7 +44,17 @@ patch-1.asm
 patch-2.asm
 patch-3.asm
 ```
-> The structure is the same for both config file.
+
+Sample for `build-config-all.ini` or `apply-config.ini`:
+```text
+[default]
+patch-1.ips
+patch-2.ips
+patch-3.ips
+
+[dev]
+dev-patch-1.ips
+```
 
 ## Apply scripts
 
