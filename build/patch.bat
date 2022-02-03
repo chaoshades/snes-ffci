@@ -39,7 +39,7 @@ for /f "usebackq delims=" %%a in ("!config!") do (
         for /f "delims=" %%b in ("!ln!") do (
             set currkey=%%b
             if "x!area!"=="x!currarea!" (
-                IF %ERRORLEVEL% EQU 0 CALL :FXPatch %kind% %rom% !currkey! %patchName%
+                IF !ERRORLEVEL! EQU 0 CALL :FXPatch %kind% %rom% !currkey! %patchName%
             )
         )
     )
