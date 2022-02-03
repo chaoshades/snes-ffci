@@ -2,6 +2,7 @@
 set rom=%1
 set dev=%2
 set buildPath=%~dp0.\build\
+set configFile=%~dp0.\apply-config.ini
 
 IF not exist "%rom%" goto :ERRrom
 IF "%dev%" NEQ "" IF "%dev%" NEQ "dev" goto :ERRdev
@@ -10,14 +11,11 @@ set patchedRom=
 CALL :FXCopy patchedRom %rom%
 
 echo The following ROM '%patchedRom%' will be patched...
-CALL :FXApply %patchedRom% 01-worldmap.ips
-CALL :FXApply %patchedRom% 02-vehicles.ips
-CALL :FXApply %patchedRom% 04-monsters.ips
-CALL :FXApply %patchedRom% 06-characters.ips
-CALL :FXApply %patchedRom% 08-events.ips
+CALL :FXApply default %patchedRom% %configFile%
+
 IF "%dev%" EQU "dev" (
   echo Adding 'dev' patches...
-  CALL :FXApply %patchedRom% 99-devRoom.ips
+  CALL :FXApply dev %patchedRom% %configFile%
 )
 IF %ERRORLEVEL% EQU 0 (
   echo ROM patched.
@@ -42,6 +40,30 @@ set "%~1=%dest%"
 exit /b %errorlevel%
 
 :FXApply
+setlocal enableextensions enabledelayedexpansion
+set kind=%1
+set rom=%2
+set config=%3
+
+set area=[%kind%]
+set currarea=
+for /f "usebackq delims=" %%a in ("!config!") do (
+    set ln=%%a
+    if "x!ln:~0,1!"=="x[" (
+        set currarea=!ln!
+    ) else (
+        for /f "delims=" %%b in ("!ln!") do (
+            set currkey=%%b
+            if "x!area!"=="x!currarea!" (
+                IF !ERRORLEVEL! EQU 0 CALL :FXPatch %rom% !currkey!
+            )
+        )
+    )
+)
+endlocal
+exit /b %errorlevel%
+
+:FXPatch
 set rom=%1
 set patch=%2
 
