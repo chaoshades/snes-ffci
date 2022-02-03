@@ -31,6 +31,9 @@ REM Stringify the current date and time into YYYY_MM_DD__HH_MM_SS
 set dt=%DATE%__%TIME:~0,8%
 set dt=%dt:-=_%
 set dt=%dt::=_%
+set dt=%dt:/=_%
+set dt=%dt:.=_%
+set dt=%dt: =0%
 set dest=%dest%_%dt%%ext%
 
 IF not exist "%tmp%" mkdir "%tmp%"
