@@ -14,6 +14,10 @@ Since rom hacking is playing a lot with raw assembly and binary, we need to rebu
 apply.bat
 └─ ips-patcher.bat
 
+apply-deps.bat
+└─ build-deps.bat
+   └─ ips-patcher.bat
+
 build.bat
 ├─ backup-rom.bat
 ├─ build-deps.bat
@@ -35,9 +39,17 @@ There are four config files as of now :
 - `build-config-ips.ini`: Contains an **ordered list** of IPS patches to apply with Flips
   > The reason there are IPS patches that are applied is because there are still changes that aren't in pure assembly code, so they are edited using some of the tools described on the main [README](../README.md)
 - `build-deps.ini`: Contains an **ordered list** of patches with their dependencies
-- `apply-config.ini`: Contains an **ordered list** of IPS patches to apply with Flips
+- `apply-config.ini`: Contains an **ordered list** of patches to apply with Flips
 
 Sample for `build-config-ips|asm.ini`:
+```text
+[0x-patchName]
+
+[0x-patchName2]
+patch-1.ips
+patch-2.ips
+patch-3.ips
+```
 ```text
 [0x-patchName]
 
@@ -62,30 +74,46 @@ Sample for `build-deps.ini`:
 Sample for `apply-config.ini`:
 ```text
 [default]
-patch-1.ips
-patch-2.ips
-patch-3.ips
+0x-patchName
+0x-patchName2
+0x-patchName3
 
 [dev]
-dev-patch-1.ips
+xx-dev-patchName
 ```
 
 ## Apply scripts
 
 ### apply.bat
 
-This script will copy the vanilla ROM and applies every named patches from the `patches` folder. Also, there is logic about a flag option to allow or not Developer mode.
+This script will copy the vanilla ROM and applies every named patches from the `patches` folder. Also, there is a flag option to allow or not Developer mode.
 
 #### Args
 
 1. Vanilla ROM which we want to apply the patches
-2. \[optional\] Flag option to add a specific patch. If specified, only valid value : `dev`
+2. \[optional\] Flag option to add a specific patch. If specified, only valid value : `-dev`
 
 #### How to use
 
 ```powershell
 apply.bat rom.sfc|rom.smc
-apply.bat rom.sfc|rom.smc dev
+apply.bat rom.sfc|rom.smc -dev
+```
+
+### apply-deps.bat
+
+This script will copy the vanilla ROM, reads the dependencies config files, loops on every line under each patch name and calls the IPS patcher. Also, there is a flag option to allow or not Developer mode.
+
+#### Args
+
+1. Vanilla ROM
+3. \[optional\] Flag option to add a specific patch. If specified, only valid value : `-dev`
+
+#### How to use
+
+```powershell
+apply-deps.bat rom.sfc|rom.smc
+apply-deps.bat rom.sfc|rom.smc -dev
 ```
 
 ## Build scripts
@@ -141,7 +169,7 @@ backup-rom.bat returnValue rom.sfc|rom.smc 0x-patchName
 
 ### build-deps.bat
 
-This script reads the build config files, loops on every line under the specified patch name and calls the IPS patcher.
+This script reads the dependencies config files, loops on every line under the specified patch name and calls the IPS patcher.
 
 #### Args
 
