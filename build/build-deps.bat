@@ -3,6 +3,7 @@ setlocal
 set rom=%1
 set patchName=%2
 set configFile=%3
+set buildPath=%~dp0
 
 IF not exist "%rom%" goto :ERRrom
 IF not exist "%configFile%" goto :ERRconfig
@@ -49,7 +50,7 @@ exit /b %errorlevel%
 set rom=%1
 set patch=%2
 
-CALL ips-patcher.bat %rom% %patch%
+CALL %buildPath%ips-patcher.bat %rom% %patch%
 
 exit /b %errorlevel%
 
