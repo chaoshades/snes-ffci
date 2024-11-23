@@ -1,6 +1,6 @@
 @echo off
 set rom=%1
-set configFile=%~dp0.\build-config-all.ini
+set configFile=%~dp0.\build-deps.ini
 
 IF not exist "%rom%" goto :ERRrom
 
