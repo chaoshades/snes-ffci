@@ -32,7 +32,7 @@ There are four config files as of now :
 - `build-config-asm.ini`: Contains an **ordered list** of ASM patches to apply with Asar
 - `build-config-ips.ini`: Contains an **ordered list** of IPS patches to apply with Flips
   > The reason there are IPS patches that are applied is because there are still changes that aren't in pure assembly code, so they are edited using some of the tools described on the main [README](../README.md)
-- `build-config-all.ini`: Contains an **ordered list** of BAT scripts to call
+- `build-config-all.ini`: Contains an **ordered list** of IPS patches to build
 - `apply-config.ini`: Contains an **ordered list** of IPS patches to apply with Flips
 
 Sample for `build-config-ips|asm.ini`:
@@ -45,7 +45,19 @@ patch-2.asm
 patch-3.asm
 ```
 
-Sample for `build-config-all.ini` or `apply-config.ini`:
+Sample for `build-config-all.ini`:
+```text
+[0x-patchName]
+
+[0x-patchName2]
+0x-patchName
+
+[0x-patchName3]
+0x-patchName
+0x-patchName2
+```
+
+Sample for `apply-config.ini`:
 ```text
 [default]
 patch-1.ips
@@ -60,7 +72,7 @@ dev-patch-1.ips
 
 ### apply.bat
 
-This script will copy the vanille ROM and applies every named patches from the `patches` folder. Also, there is logic is about a flag option to allow or not Developer mode.
+This script will copy the vanilla ROM and applies every named patches from the `patches` folder. Also, there is logic about a flag option to allow or not Developer mode.
 
 #### Args
 
@@ -76,36 +88,18 @@ apply.bat rom.sfc|rom.smc dev
 
 ## Build scripts
 
-### 0x-patchName.bat
-
-These are mainly shortcuts calling the `build.bat` script. There are no logic in here.
-
-#### Args
-
-1. Vanilla ROM which we want to apply the patches
-2. \[optional\] Hacked ROM which we want to create the IPS patch
-
-#### How to use
-
-```powershell
-0x-patchName.bat rom.sfc|rom.smc
-0x-patchName.bat rom.sfc|rom.smc hacked.sfc|hacked.smc
-```
-
 ### build-all.bat
 
-This is mainly a shortcut to every `0x-patchName.bat` script. The only logic is about a flag option to allow or not Developer mode.
+This script reads the build config file, loops on every specified patch name and calls the `build.bat` script.
 
 #### Args
 
 1. Vanilla ROM which we want to apply the patches
-2. \[optional\] Flag option to add a specific patch. If specified, only valid value : `dev`
 
 #### How to use
 
 ```powershell
 build-all.bat rom.sfc|rom.smc
-build-all.bat rom.sfc|rom.smc dev
 ```
 
 ### build.bat
