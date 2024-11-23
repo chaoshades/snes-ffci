@@ -3,6 +3,7 @@
     "key": "ff2u-sfc",
     "name": "Final Fantasy II 1.1 (U)",
     "releaseNotes": {
+        "1.09": "01-maps-cornelia - baron replacement: [mapLayouts] more free space needed, [mapTitle] updated name, [mapProperties] updated properties, [mapTriggers] moving triggers, [npcProperties] updated npc charset",
         "1.08": "06-characters - new jobs [characterJob], new characters [characterID], new stats [characterStats], new character spells [spellList], new character graphics [characterGraphics], new character portraits [portraitGraphics], new character palettes [characterPalette], new character map graphics [mapSpriteGraphics]",
         "1.07": "06-characters - bigger xp tables: [characterLevelProgression] more free space needed",
         "1.06": "04-monsters - Issue (battle stops when starting) after editing rom: [monsterProperties] changing reference to match addresses for version 1.1 of the rom",
@@ -782,8 +783,7 @@
             "key": "attackPalette",
             "name": "Attack Palette",
             "default": "Attack Palette %i",
-            "length": 64,
-            "string": null
+            "length": 64
         },
         "battleBackgroundLayoutLower": {
             "type": "stringTable",
@@ -890,8 +890,7 @@
             "key": "battleDialog",
             "name": "Battle Dialog",
             "default": "<battleDialog[%i]>",
-            "length": 186,
-            "string": null
+            "length": 186
         },
         "battleGroup": {
             "type": "stringTable",
@@ -1550,8 +1549,7 @@
             "key": "characterNames",
             "name": "Character Names",
             "default": "<characterNames[%i]>",
-            "length": 14,
-            "string": null
+            "length": 14
         },
         "characterPalette": {
             "type": "stringTable",
@@ -1624,24 +1622,21 @@
             "key": "characterTitle",
             "name": "Character Title",
             "default": "<characterTitle[%i]>",
-            "length": 14,
-            "string": null
+            "length": 14
         },
         "eventDialog1": {
             "type": "stringTable",
             "key": "eventDialog1",
             "name": "Event Dialog 1",
             "default": "<eventDialog1[%i].formattedText>",
-            "length": 512,
-            "string": null
+            "length": 512
         },
         "eventDialog2": {
             "type": "stringTable",
             "key": "eventDialog2",
             "name": "Event Dialog 2",
             "default": "<eventDialog2[%i].formattedText>",
-            "length": 256,
-            "string": null
+            "length": 256
         },
         "eventScript": {
             "type": "stringTable",
@@ -1815,8 +1810,7 @@
             "key": "itemDescription",
             "name": "Item Description",
             "default": "<itemDescription[%i].formattedText>",
-            "length": 59,
-            "string": null
+            "length": 59
         },
         "itemEquipability": {
             "type": "stringTable",
@@ -1933,7 +1927,7 @@
             "default": "Map %i",
             "length": 383,
             "string": {
-                "0": "Town of Baron",
+                "0": "Cornelia",
                 "1": "Village Mist",
                 "2": "Kaipo",
                 "3": "Mysidia",
@@ -1942,12 +1936,12 @@
                 "6": "Agart",
                 "7": "Town of Toroia: Inn",
                 "8": "Town of Toroia: Weapon Shop",
-                "9": "Town of Toroia: Armor Shop",
-                "10": "Town of Toroia: Item Shop",
-                "11": "Town of Baron: Inn",
-                "12": "Town of Baron: Weapon/Armor Shop",
-                "13": "Town of Baron: Cid's House",
-                "14": "Town of Baron: Rosa's House",
+                "9": "Cornelia: Armor Shop",
+                "10": "Cornelia: House of Wishes",
+                "11": "Cornelia: Inn",
+                "12": "Cornelia: Weapon Shop",
+                "13": "Cornelia: Black Magic Shop",
+                "14": "Cornelia: White Magic Shop",
                 "15": "Village Mist: House",
                 "16": "Kaipo: Inn",
                 "17": "Kaipo: Cafe",
@@ -2123,7 +2117,7 @@
                 "233": "Silvera: Weapon Shop",
                 "234": "Silvera: Armor Shop",
                 "235": "Silvera: Item Shop",
-                "236": "Town of Baron: Item Shop",
+                "236": "Cornelia: Item Shop",
                 "251": "World Map",
                 "252": "Underground",
                 "253": "Moon",
@@ -2351,8 +2345,7 @@
             "key": "mapTitle",
             "name": "Map Title",
             "default": "<mapTitle[%i]>",
-            "length": 121,
-            "string": null
+            "length": 121
         },
         "monsterAction": {
             "type": "stringTable",
@@ -4036,10 +4029,15 @@
         "0x0FC5B4-0x0FC600",
         "0x0FC62F-0x0FC700",
         "0x12E693-0x12F000",
+        "0x1396B0-0x139700",
         "0x13A293-0x13A300",
+        "0x15960B-0x15961F",
+        "0x159AE3-0x159AEF",
+        "0x15AFF7-0x15B000",
         "0x16C477-0x16C480",
         "0x16E042-0x16E180",
         "0x16EB54-0x16EB80",
+        "0x19FC04-0x19FE60",
         "0x1CD8F0-0x1CD900"
     ],
     "assembly": {
@@ -5581,8 +5579,7 @@
                             "type": "stringTable",
                             "key": "characterStats.status34",
                             "default": "<stringTable.status[%i+16]>",
-                            "length": 16,
-                            "string": null
+                            "length": 16
                         },
                         "begin": 5,
                         "mask": "0xFFFF",
@@ -6270,12 +6267,13 @@
         "mapLayouts": {
             "type": "data",
             "name": "Map Layout",
-            "range": "0x178000-0x19FE60",
+            "range": "0x178000-0x19FC04",
             "reference": [
                 {
                     "begin": "0x00FC37",
                     "mask": "0xFF",
-                    "bankByte": true
+                    "bankByte": true,
+                    "multiplier": 65536
                 },
                 {
                     "begin": "0x00FC4F",
@@ -6297,12 +6295,15 @@
                     "offset": -3
                 }
             ],
+            "freeSpace": [
+                "0x017C5B-0x017C60"
+            ],
             "isSequential": true,
             "assembly": {
                 "overworldLayouts": {
                     "type": "array",
                     "name": "Overworld Layout",
-                    "range": "0x0300-0xF12E",
+                    "range": "0x02FE-0xF03E",
                     "stringTable": {
                         "type": "stringTable",
                         "key": "mapLayouts.overworldLayouts",
@@ -6329,7 +6330,7 @@
                 "undergroundMoonLayouts": {
                     "type": "array",
                     "name": "Underground/Moon Layout",
-                    "range": "0x00F12E-0x017CF9",
+                    "range": "0x00F03E-0x017C04",
                     "stringTable": {
                         "type": "stringTable",
                         "key": "mapLayouts.undergroundMoonLayouts",
@@ -6349,7 +6350,7 @@
                         "format": "ff4-map"
                     },
                     "pointerTable": {
-                        "range": "0x0200-0x0300",
+                        "range": "0x0200-0x02FE",
                         "canRelocate": true,
                         "offset": "0x8000"
                     }
@@ -6370,7 +6371,7 @@
         "mapProperties": {
             "type": "array",
             "name": "Map Properties",
-            "range": "0x159C84-0x15B000",
+            "range": "0x159C84-0x15AFF7",
             "stringTable": "mapProperties",
             "arrayLength": 383,
             "assembly": {
@@ -6896,7 +6897,7 @@
         "mapTitle": {
             "type": "array",
             "name": "Map Title",
-            "range": "0x159620-0x159AEF",
+            "range": "0x159620-0x159AE3",
             "stringTable": "mapTitle",
             "arrayLength": 121,
             "arrayMax": 121,
@@ -6909,7 +6910,7 @@
         "mapTriggers": {
             "type": "array",
             "name": "Map Triggers",
-            "range": "0x158300-0x15961F",
+            "range": "0x158300-0x15960B",
             "canRelocate": true,
             "reference": [
                 {
@@ -7549,8 +7550,7 @@
                             "key": "monsterCondition.status1",
                             "name": "Status",
                             "default": "<stringTable.status[%i]>",
-                            "length": 8,
-                            "string": null
+                            "length": 8
                         },
                         "invalid": "(this.parent.condition.value !== 0) || (this.parent.statusByte.value !== 0)",
                         "begin": 3,
@@ -7564,8 +7564,7 @@
                             "key": "monsterCondition.status2",
                             "name": "Status",
                             "default": "<stringTable.status[%i+8]>",
-                            "length": 8,
-                            "string": null
+                            "length": 8
                         },
                         "invalid": "(this.parent.condition.value !== 0) || (this.parent.statusByte.value !== 1)",
                         "begin": 3,
@@ -7579,8 +7578,7 @@
                             "key": "monsterCondition.status3",
                             "name": "Status",
                             "default": "<stringTable.status[%i+16]>",
-                            "length": 8,
-                            "string": null
+                            "length": 8
                         },
                         "invalid": "(this.parent.condition.value !== 0) || (this.parent.statusByte.value !== 2)",
                         "begin": 3,
@@ -7594,8 +7592,7 @@
                             "key": "monsterCondition.status4",
                             "name": "Status",
                             "default": "<stringTable.status[%i+24]>",
-                            "length": 8,
-                            "string": null
+                            "length": 8
                         },
                         "invalid": "(this.parent.condition.value !== 0) || (this.parent.statusByte.value !== 3)",
                         "begin": 3,
@@ -8127,7 +8124,7 @@
         "npcProperties": {
             "type": "array",
             "name": "NPC Properties",
-            "range": "0x138300-0x139700",
+            "range": "0x138300-0x1396B0",
             "canRelocate": true,
             "reference": [
                 {
@@ -9331,7 +9328,7 @@
         }
     },
     "length": "0x100000",
-    "crc32": "0x23084FCD",
+    "crc32": "0x4B3C0B5D",
     "system": "sfc",
     "mode": "loROM",
     "hierarchy": [
