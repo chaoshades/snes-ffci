@@ -8,11 +8,8 @@ echo The following ROM '%rom%' will be patched...
 CALL :FXApply %rom% %configFile%
 
 IF %ERRORLEVEL% EQU 0 (
-  echo ROM patched.
-  @pause
   goto :end
 ) ELSE (
-  echo ROM patching failed. See logs above for details.
   goto :error
 )
 
