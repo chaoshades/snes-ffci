@@ -5,7 +5,7 @@ set buildPath=%~dp0.\build\
 set configFile=%~dp0.\apply-config.ini
 
 IF not exist "%rom%" goto :ERRrom
-IF "%dev%" NEQ "" IF "%dev%" NEQ "dev" goto :ERRdev
+IF "%dev%" NEQ "" IF "%dev%" NEQ "-dev" goto :ERRdev
 
 set patchedRom=
 CALL :FXCopy patchedRom %rom%
@@ -13,9 +13,11 @@ CALL :FXCopy patchedRom %rom%
 echo The following ROM '%patchedRom%' will be patched...
 CALL :FXApply default %patchedRom% %configFile%
 
-IF "%dev%" EQU "dev" (
-  echo Adding 'dev' patches...
-  CALL :FXApply dev %patchedRom% %configFile%
+IF %ERRORLEVEL% EQU 0 (
+  IF "%dev%" EQU "-dev" (
+    echo Adding 'dev' patches...
+    CALL :FXApply dev %patchedRom% %configFile%
+  )
 )
 IF %ERRORLEVEL% EQU 0 (
   echo ROM patched.
@@ -67,7 +69,7 @@ exit /b %errorlevel%
 set rom=%1
 set patch=%2
 
-CALL %buildPath%ips-patcher.bat %rom% %patch%
+CALL %buildPath%ips-patcher.bat %rom% %patch%.ips
 
 exit /b %errorlevel%
 
@@ -76,7 +78,7 @@ echo You need to specify a ROM to apply the patches.
 goto error
 
 :ERRdev
-echo "dev" is the only supported option to apply 'dev' patches.
+echo "-dev" is the only supported option to apply 'dev' patches.
 goto error
 
 :error
