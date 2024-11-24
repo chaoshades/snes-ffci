@@ -3,37 +3,34 @@ set rom=%1
 set dev=%2
 set buildPath=%~dp0.\build\
 set configFile=%~dp0.\apply-config.ini
+set depsConfigFile=%buildPath%\build-deps.ini
 
 IF not exist "%rom%" goto :ERRrom
 IF "%dev%" NEQ "" IF "%dev%" NEQ "-dev" goto :ERRdev
 
-set patchedRom=
-CALL :FXCopy patchedRom %rom%
-
-echo The following ROM '%patchedRom%' will be patched...
-CALL :FXApply default %patchedRom% %configFile%
+echo The following ROM '%rom%' will be patched...
+CALL :FXApply default %rom% %configFile%
 
 IF %ERRORLEVEL% EQU 0 (
   IF "%dev%" EQU "-dev" (
     echo Adding 'dev' patches...
-    CALL :FXApply dev %patchedRom% %configFile%
+    CALL :FXApply dev %rom% %configFile%
   )
 )
 IF %ERRORLEVEL% EQU 0 (
-  echo ROM patched.
-  @pause
   goto :end
 ) ELSE (
-  echo ROM patching failed. See logs above for details.
   goto :error
 )
 
 :FXCopy
 set src=%2
+set suffix=%3
+IF "%suffix%" EQU "" set suffix=patched
 set path=%~p2
 set file=%~n2
 set ext=%~x2
-set dest=%file%-patched%ext%
+set dest=%file%-%suffix%%ext%
 
 echo Copying %src% into %path%
 copy /y "%src%" "%dest%" >NUL
@@ -69,7 +66,9 @@ exit /b %errorlevel%
 set rom=%1
 set patch=%2
 
-CALL %buildPath%ips-patcher.bat %rom% %patch%.ips
+set depRom=
+CALL :FXCopy depRom %rom% deps-%patch%
+CALL %buildPath%build-deps.bat !depRom! %patch% %depsConfigFile%
 
 exit /b %errorlevel%
 
