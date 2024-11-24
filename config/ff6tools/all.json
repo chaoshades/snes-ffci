@@ -1965,12 +1965,12 @@
                 "38": "Fabul",
                 "39": "Toroian Castle",
                 "40": "Eblan",
-                "42": "Baron: 1F",
+                "42": "Cornelia: 1F",
                 "43": "Baron: 2F",
                 "44": "Baron: Throne Room",
                 "45": "Baron: Left Hall",
                 "46": "Baron: Right Hall",
-                "47": "Baron: Dungeon 1F",
+                "47": "Cornelia: Dungeon 1F",
                 "48": "Baron: Dungeon B1F",
                 "49": "Baron: Infirmary",
                 "50": "Baron: Left Tower 1F",
@@ -4028,7 +4028,7 @@
         "0x0FAB93-0x0FAE00",
         "0x0FC5B4-0x0FC600",
         "0x0FC62F-0x0FC700",
-        "0x12ED3B-0x12F000",
+        "0x12ED3F-0x12F000",
         "0x1396B0-0x139700",
         "0x13A293-0x13A300",
         "0x15960B-0x15961F",
@@ -4037,7 +4037,7 @@
         "0x16C477-0x16C480",
         "0x16E042-0x16E180",
         "0x16EB54-0x16EB80",
-        "0x19F839-0x19FE60",
+        "0x19F84E-0x19FE60",
         "0x1CD8F0-0x1CD900"
     ],
     "assembly": {
@@ -5642,7 +5642,7 @@
         "eventScript": {
             "type": "array",
             "name": "Event Script",
-            "range": "0x128200-0x12ED3B",
+            "range": "0x128200-0x12ED3F",
             "stringTable": "eventScript",
             "arrayLength": 256,
             "assembly": {
@@ -6267,7 +6267,7 @@
         "mapLayouts": {
             "type": "data",
             "name": "Map Layout",
-            "range": "0x178000-0x19F839",
+            "range": "0x178000-0x19F84E",
             "reference": [
                 {
                     "begin": "0x00FC37",
@@ -6296,6 +6296,7 @@
                 }
             ],
             "freeSpace": [
+                "0x017851-0x017987",
                 "0x017A80-0x017B70",
                 "0x017C5B-0x017C60"
             ],
@@ -6304,7 +6305,7 @@
                 "overworldLayouts": {
                     "type": "array",
                     "name": "Overworld Layout",
-                    "range": "0x02FE-0xED63",
+                    "range": "0x02FE-0xF053",
                     "stringTable": {
                         "type": "stringTable",
                         "key": "mapLayouts.overworldLayouts",
@@ -6331,7 +6332,7 @@
                 "undergroundMoonLayouts": {
                     "type": "array",
                     "name": "Underground/Moon Layout",
-                    "range": "0x00ED63-0x017839",
+                    "range": "0x00F053-0x01784E",
                     "stringTable": {
                         "type": "stringTable",
                         "key": "mapLayouts.undergroundMoonLayouts",
@@ -9329,7 +9330,7 @@
         }
     },
     "length": "0x100000",
-    "crc32": "0x723BAF16",
+    "crc32": "0xD4383BD5",
     "system": "sfc",
     "mode": "loROM",
     "hierarchy": [
