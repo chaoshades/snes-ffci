@@ -1931,7 +1931,7 @@
             "length": 383,
             "string": {
                 "0": "Cornelia",
-                "1": "Village Mist",
+                "1": "Pravoka",
                 "2": "Kaipo",
                 "3": "Mysidia",
                 "4": "Silvera",
@@ -4035,13 +4035,13 @@
         "0x12ED3D-0x12F000",
         "0x139608-0x139700",
         "0x13A0C0-0x13A300",
-        "0x1595B6-0x15961F",
-        "0x159AED-0x159AEF",
+        "0x1595C0-0x15961F",
+        "0x159AE3-0x159AEF",
         "0x15AFF7-0x15B000",
         "0x16C477-0x16C480",
         "0x16E042-0x16E180",
         "0x16EB54-0x16EB80",
-        "0x19FA24-0x19FE60",
+        "0x19FBA6-0x19FE60",
         "0x1CD8F0-0x1CD900"
     ],
     "assembly": {
@@ -6271,7 +6271,7 @@
         "mapLayouts": {
             "type": "data",
             "name": "Map Layout",
-            "range": "0x178000-0x19FA24",
+            "range": "0x178000-0x19FBA6",
             "reference": [
                 {
                     "begin": "0x00FC37",
@@ -6300,7 +6300,6 @@
                 }
             ],
             "freeSpace": [
-                "0x017A24-0x017B70",
                 "0x017C5B-0x017C60"
             ],
             "isSequential": true,
@@ -6308,7 +6307,7 @@
                 "overworldLayouts": {
                     "type": "array",
                     "name": "Overworld Layout",
-                    "range": "0x02FE-0xF304",
+                    "range": "0x02FE-0xF486",
                     "stringTable": {
                         "type": "stringTable",
                         "key": "mapLayouts.overworldLayouts",
@@ -6335,7 +6334,7 @@
                 "undergroundMoonLayouts": {
                     "type": "array",
                     "name": "Underground/Moon Layout",
-                    "range": "0x00F304-0x017A24",
+                    "range": "0x00F486-0x017BA6",
                     "stringTable": {
                         "type": "stringTable",
                         "key": "mapLayouts.undergroundMoonLayouts",
@@ -6902,7 +6901,7 @@
         "mapTitle": {
             "type": "array",
             "name": "Map Title",
-            "range": "0x159620-0x159AED",
+            "range": "0x159620-0x159AE3",
             "stringTable": "mapTitle",
             "arrayLength": 121,
             "arrayMax": 121,
@@ -6915,7 +6914,7 @@
         "mapTriggers": {
             "type": "array",
             "name": "Map Triggers",
-            "range": "0x158300-0x1595B6",
+            "range": "0x158300-0x1595C0",
             "canRelocate": true,
             "reference": [
                 {
@@ -9333,7 +9332,7 @@
         }
     },
     "length": "0x100000",
-    "crc32": "0x3DBBBA0B",
+    "crc32": "0x63DA98C2",
     "system": "sfc",
     "mode": "loROM",
     "hierarchy": [
