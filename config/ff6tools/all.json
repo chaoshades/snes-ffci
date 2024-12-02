@@ -4041,7 +4041,7 @@
         "0x16C477-0x16C480",
         "0x16E042-0x16E180",
         "0x16EB54-0x16EB80",
-        "0x19FBA6-0x19FE60",
+        "0x19FBAF-0x19FE60",
         "0x1CD8F0-0x1CD900"
     ],
     "assembly": {
@@ -6271,7 +6271,7 @@
         "mapLayouts": {
             "type": "data",
             "name": "Map Layout",
-            "range": "0x178000-0x19FBA6",
+            "range": "0x178000-0x19FBAF",
             "reference": [
                 {
                     "begin": "0x00FC37",
@@ -6307,7 +6307,7 @@
                 "overworldLayouts": {
                     "type": "array",
                     "name": "Overworld Layout",
-                    "range": "0x02FE-0xF486",
+                    "range": "0x02FE-0xF48F",
                     "stringTable": {
                         "type": "stringTable",
                         "key": "mapLayouts.overworldLayouts",
@@ -6334,7 +6334,7 @@
                 "undergroundMoonLayouts": {
                     "type": "array",
                     "name": "Underground/Moon Layout",
-                    "range": "0x00F486-0x017BA6",
+                    "range": "0x00F48F-0x017BAF",
                     "stringTable": {
                         "type": "stringTable",
                         "key": "mapLayouts.undergroundMoonLayouts",
@@ -9332,7 +9332,7 @@
         }
     },
     "length": "0x100000",
-    "crc32": "0x63DA98C2",
+    "crc32": "0xE6C774C0",
     "system": "sfc",
     "mode": "loROM",
     "hierarchy": [
