@@ -1940,7 +1940,7 @@
                 "7": "Town of Toroia: Inn",
                 "8": "Town of Toroia: Weapon Shop",
                 "9": "Cornelia: Armor Shop",
-                "10": "Cornelia: House of Wishes",
+                "10": "Cornelia: Clinic",
                 "11": "Cornelia: Inn",
                 "12": "Cornelia: Weapon Shop",
                 "13": "Cornelia: Black Magic Shop",
@@ -4036,12 +4036,12 @@
         "0x139608-0x139700",
         "0x13A0C0-0x13A300",
         "0x1595C0-0x15961F",
-        "0x159AE3-0x159AEF",
+        "0x159AD8-0x159AEF",
         "0x15AFF7-0x15B000",
         "0x16C477-0x16C480",
         "0x16E042-0x16E180",
         "0x16EB54-0x16EB80",
-        "0x19FBAF-0x19FE60",
+        "0x19FBB1-0x19FE60",
         "0x1CD8F0-0x1CD900"
     ],
     "assembly": {
@@ -6271,7 +6271,7 @@
         "mapLayouts": {
             "type": "data",
             "name": "Map Layout",
-            "range": "0x178000-0x19FBAF",
+            "range": "0x178000-0x19FBB1",
             "reference": [
                 {
                     "begin": "0x00FC37",
@@ -6307,7 +6307,7 @@
                 "overworldLayouts": {
                     "type": "array",
                     "name": "Overworld Layout",
-                    "range": "0x02FE-0xF48F",
+                    "range": "0x02FE-0xF491",
                     "stringTable": {
                         "type": "stringTable",
                         "key": "mapLayouts.overworldLayouts",
@@ -6334,7 +6334,7 @@
                 "undergroundMoonLayouts": {
                     "type": "array",
                     "name": "Underground/Moon Layout",
-                    "range": "0x00F48F-0x017BAF",
+                    "range": "0x00F491-0x017BB1",
                     "stringTable": {
                         "type": "stringTable",
                         "key": "mapLayouts.undergroundMoonLayouts",
@@ -6901,7 +6901,7 @@
         "mapTitle": {
             "type": "array",
             "name": "Map Title",
-            "range": "0x159620-0x159AE3",
+            "range": "0x159620-0x159AD8",
             "stringTable": "mapTitle",
             "arrayLength": 121,
             "arrayMax": 121,
@@ -9332,7 +9332,7 @@
         }
     },
     "length": "0x100000",
-    "crc32": "0xE6C774C0",
+    "crc32": "0xA1FE79DE",
     "system": "sfc",
     "mode": "loROM",
     "hierarchy": [
